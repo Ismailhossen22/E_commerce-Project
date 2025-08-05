@@ -1,0 +1,27 @@
+<div class="row">
+
+    <div class="col-12">
+        <table class="table table-bordered">
+            <thead>
+          <tr>
+            <th>Si No </th>
+              <th>category Name</th>
+                <th>Action </th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of categoryList">
+
+            <td>{{item.categoryId}}</td>
+              <td>{{item.categoryName}}</td>
+              <td>
+                <a class="btn btn-info" href="#">Edit </a>
+                <a class="btn btn-primary mx-3" href="#">Add </a>
+              </td>
+        </tr>
+        </tbody>
+        </table>
+      
+    </div>
+
+</div>
