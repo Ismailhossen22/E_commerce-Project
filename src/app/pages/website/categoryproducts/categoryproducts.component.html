@@ -1,1 +1,37 @@
-<p>categoryproducts works!</p>
+<div class="container-fluid py-5">
+    <diV class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+          <h1 class="display-4 fw-semibold" style="color: #10cb16;">BestSeller Products</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium assumenda animi atque doloribus asperiores sequi cumque ea totam provident consectetur, doloremque fugit dolorum pariatur sit quos quibusdam temporibus, perferendis, tempora magni accusamus.
+             Quo autem voluptates ipsum nisi. Amet, vel quo?</p>
+        </div>
+         <div class="row ">
+            <div class="col-lg-6 col-xl-4 " *ngFor="let item of categoryproductlist">
+                <div class="rounded bg-info bg-opacity-25 my-2">
+                   <div class="row align-items-center">
+                     <div class="col-6">
+                      <img class="img-fluid rounded-circle w-100" [src]="item.imageFile">
+                     </div>
+                     <div class="col-6">
+                        
+                         <h3>{{item.productName}}</h3>
+                         <h4>{{item.productPrice}}BD</h4>
+                        
+                          
+                        <div class="d-flex align-content-between" style="color: #10cb16;">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+
+                     </div>
+                   </div>
+                </div>
+
+            </div>
+
+         </div>
+    </diV>
+
+</div>
+

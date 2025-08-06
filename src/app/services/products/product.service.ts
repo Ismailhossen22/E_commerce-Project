@@ -14,6 +14,14 @@ export class ProductService {
     getallCategory(){
       return this.http.get(this.apiUrl+'Category/GetAllCategory');
     };
+
+    
+    //product section
+    getcategoryById(id:number){
+     return this.http.get(this.apiUrl+'Product/'+id);
+    }
+   
+
     getAllproduct(){
      return this.http.get(this.apiUrl+'Product/GetAllProduct');
     }
@@ -29,9 +37,7 @@ export class ProductService {
     return this.http.delete(this.apiUrl+'product/'+id);
    }
 
-   getAllCategoryById(){
-    return this.http.get(this.apiUrl+'Category/GetbycategoryId?id=101')
-   }
+  
    
 
 }

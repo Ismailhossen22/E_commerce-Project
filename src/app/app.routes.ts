@@ -5,6 +5,7 @@ import { ProductsComponent } from './pages/admin/products/products.component';
 import { CategoriesComponent } from './pages/admin/categories/categories.component';
 import { LandingComponent } from './pages/website/landing/landing.component';
 import { WebProductsComponent } from './pages/website/web-products/web-products.component';
+import { CategoryproductsComponent } from './pages/website/categoryproducts/categoryproducts.component';
 
 export const routes: Routes = [
 
@@ -27,7 +28,7 @@ export const routes: Routes = [
         },
         {
           path:'products/:id',
-          component:CategoriesComponent
+          component:CategoryproductsComponent
         }
       ]
     },
