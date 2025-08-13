@@ -6,6 +6,7 @@ import { CategoriesComponent } from './pages/admin/categories/categories.compone
 import { LandingComponent } from './pages/website/landing/landing.component';
 import { WebProductsComponent } from './pages/website/web-products/web-products.component';
 import { CategoryproductsComponent } from './pages/website/categoryproducts/categoryproducts.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 export const routes: Routes = [
 
@@ -49,5 +50,13 @@ export const routes: Routes = [
         }
 
       ]
-    }
+    },
+
+
+   {
+    path:"**",
+    component:NotFoundComponent
+   }
+
+
 ]

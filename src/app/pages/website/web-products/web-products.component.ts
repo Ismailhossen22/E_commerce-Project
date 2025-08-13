@@ -16,15 +16,24 @@ export class WebProductsComponent implements OnInit {
   constructor(private httpservice:ProductService){}
 
   ngOnInit(): void {
+
+    
     this.getAllproduct();
+
   }
+  Message:string='';
 
   getAllproduct(){
-    this.httpservice.getAllproduct().subscribe((res:any)=>{
-    
-     this.productlist=res;
+    this.httpservice.getAllproduct().subscribe({
+      next:(res:any)=> {
+        this.productlist=res.data
+        console.log(res.message);
+        
+      }
+    })
+   
 
-    });
+    
   }
 
 }
