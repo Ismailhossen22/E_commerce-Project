@@ -16,9 +16,17 @@ export class ProductService {
     };
 
     
-    //product section
+    //product section/categoryId?categoryId=105
+ 
+      //   getcategoryById(id: number) {
+      //   const params = { categoryId: id };
+      //   return this.http.get(this.apiUrl + 'Product/categoryId', { params });
+      // };
+
     getcategoryById(id:number){
-     return this.http.get(this.apiUrl+'Product/'+id);
+      
+
+     return this.http.get(this.apiUrl+'Product/categoryId?categoryId='+id);
     }
    
 
@@ -29,7 +37,7 @@ export class ProductService {
    Createproduct(obj:any){
     return this.http.post(this.apiUrl+'Product/AddProducts', obj);
    };
-  
+  //Product/id?id=28
    updateProduct(id:any,obj:any){
     return this.http.put(this.apiUrl+'Product/'+id,obj);
    };
@@ -38,6 +46,5 @@ export class ProductService {
    }
 
   
-   
 
 }

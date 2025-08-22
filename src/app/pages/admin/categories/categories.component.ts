@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 export class CategoriesComponent implements OnInit {
 
   categoryList :any []=[];
+
  constructor (private httpservice:ProductService){}
   ngOnInit(): void {
     this.getAllcategory();
@@ -19,7 +20,7 @@ export class CategoriesComponent implements OnInit {
 
  getAllcategory(){
   this.httpservice.getallCategory().subscribe((res:any)=>{
-   this.categoryList=res;
+   this.categoryList=res.data;
 
   });
  }

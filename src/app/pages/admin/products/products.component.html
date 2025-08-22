@@ -71,7 +71,7 @@
                     </div>
                       <div class="col-6">
                         <label for="">Category</label>
-                        <select   class="form-select" [(ngModel)]="productObj.category_ID" >
+                        <select   class="form-select" [(ngModel)]="productObj.categoryId" >
                             <option *ngFor="let items of categoryList" [value]="items.categoryId"> {{items.categoryName}}</option>
 
                         </select>

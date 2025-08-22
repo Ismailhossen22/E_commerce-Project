@@ -23,7 +23,7 @@ constructor(private httpservice:ProductService,private route:Router){}
 
 getAllcategory(){
   this.httpservice.getallCategory().subscribe((res:any)=>{
-  this.categorylist=res;
+  this.categorylist=res.data;
 
   })
 

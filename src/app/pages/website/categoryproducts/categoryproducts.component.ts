@@ -29,7 +29,7 @@ export class CategoryproductsComponent {
    
   loadproduct(){
     this.httpservice.getcategoryById(this.activeCategoryId).subscribe((res:any)=>{
-   this.categoryproductlist=res;
+   this.categoryproductlist=res.data;
 
     });
   }

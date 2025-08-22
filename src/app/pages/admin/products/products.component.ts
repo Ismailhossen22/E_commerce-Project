@@ -32,7 +32,7 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
     this.getallcategorys();
     this.getAllproduct();
-   
+    this.getrereshtoken();
 
 
 
@@ -47,7 +47,7 @@ export class ProductsComponent implements OnInit {
     "delevaryTimeSpan": "",
     "imageFile": "",
     "productDescription": "",
-    "category_ID": 0
+    "categoryId": 0
 
   }
 
@@ -64,7 +64,7 @@ export class ProductsComponent implements OnInit {
   getallcategorys() {
 
     this.httpservice.getallCategory().subscribe((res: any) => {
-      this.categoryList = res;
+      this.categoryList = res.data;
 
     });
   }
@@ -93,11 +93,13 @@ export class ProductsComponent implements OnInit {
   }
 
   onEdit(item: any) {
+   debugger;
     this.productObj = item;
     this.opensidepanel();
   }
   onUpdate() {
-    this.httpservice.updateProduct(this.productObj, this.productObj.productId).subscribe((res: any) => {
+    debugger;
+    this.httpservice.updateProduct(this.productObj.productId,this.productObj ).subscribe((res: any) => {
 
     })
   }

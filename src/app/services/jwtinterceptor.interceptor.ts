@@ -20,7 +20,7 @@ export const jwtinterceptorInterceptor: HttpInterceptorFn = (req, next) => {
   if (typeof window !== 'undefined') {
     token = localStorage.getItem('access_token');
   }
-
+  
 
 
   if(token){
@@ -34,14 +34,17 @@ export const jwtinterceptorInterceptor: HttpInterceptorFn = (req, next) => {
   }
   debugger;
 
-  return next(req).pipe(
+  return next(req)
+
+  .pipe(
     catchError((error:HttpErrorResponse)=>{
+      debugger;
       if(error.status===401){
         return accoutser.RefreshToken().pipe(
         switchMap(newtoken=>{
           const newReq=req.clone({
             setHeaders:{Authorization:`Bearer ${newtoken} `
-
+   
               
             }
           });
@@ -64,5 +67,7 @@ export const jwtinterceptorInterceptor: HttpInterceptorFn = (req, next) => {
     })
     
   )
+
+
 };
 

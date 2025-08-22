@@ -7,6 +7,8 @@ import { LandingComponent } from './pages/website/landing/landing.component';
 import { WebProductsComponent } from './pages/website/web-products/web-products.component';
 import { CategoryproductsComponent } from './pages/website/categoryproducts/categoryproducts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { authGuard } from './services/guards/auth.guard';
+import { ForgotpasswordComponent } from './pages/admin/forgotpassword/forgotpassword.component';
 
 export const routes: Routes = [
 
@@ -18,6 +20,12 @@ export const routes: Routes = [
     {
         path:'login',
         component:LoginComponent
+    },
+
+    {
+      path:'forgotpassword',
+      component:ForgotpasswordComponent
+
     },
     {
       path:'',
@@ -37,7 +45,7 @@ export const routes: Routes = [
     
     {
       path:'',
-      component:LayoutComponent,
+      component:LayoutComponent,canActivate:[authGuard],
       children:[
         {
             path:'products',
