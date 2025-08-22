@@ -3,13 +3,13 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
 
 ## Implement project
-1.Authentication and Authorization by jwt token system (Intercepter)
-Route (Guard ) routhing manage
-User login registration and password reset system implemented .
-AccessToken & Refresh token system implemented (interceptor)
-Restfull Api (product Add ,Update ,delete ).
-Angular RJx Methode pipe() observable etc
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
+1.Authentication and Authorization by jwt token system (Intercepter)..
+Route (Guard ) routhing manage.. 
+User login registration and password reset system implemented ..
+AccessToken & Refresh token system implemented (interceptor)..
+Restfull Api (product Add ,Update ,delete )..
+Angular RJx Methode pipe() observable etc.
+
 
 ## Code scaffolding
 
@@ -17,7 +17,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
 ## Running unit tests
 
