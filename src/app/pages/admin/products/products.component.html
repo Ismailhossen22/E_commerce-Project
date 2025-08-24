@@ -1,4 +1,4 @@
-<div class="row ">
+<div class="row g-2 ">
 
     <div [ngClass]="isSidePanelVisble ? 'col-8':'col-12' ">
         <div class="card">
@@ -15,11 +15,11 @@
 
             </div>
             <div class="card-body ">
-                <div class="row">
+                <div class="row g-4">
                     
                     <div class="col-3" *ngFor="let items of productList" >
 
-                        <div class="card" >
+                        <div class="card shadow-lg" >
                             <img class="card-img-top" [src]="items.imageFile" alt="Card image" style="height: 100px;width: 120px;">
                             
                             <div class="card-body">
@@ -113,5 +113,23 @@
             </div>
 
         </div>
+
+
+    </div>
+           <!-- Pagination -->
+    <div class="card-footer d-flex justify-content-end bg-info">
+        <nav>
+            <ul class="pagination mb-0">
+                <li class="page-item" [class.disabled]="pageNumber  === 1">
+                    <button class="page-link" (click)="prevPage()">Previous</button>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link">{{ pageNumber }} / {{ totalPages }}</span>
+                </li>
+                <li class="page-item" [class.disabled]="pageNumber  === totalCount">
+                    <button class="page-link" (click)="nextPage()">Next</button>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>

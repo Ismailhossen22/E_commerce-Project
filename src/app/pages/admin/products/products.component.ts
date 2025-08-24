@@ -24,7 +24,7 @@ export class ProductsComponent implements OnInit {
 
 
   categoryList: any[] = [];
-  productList: any[] = [];
+
   //  productList:any;
   isSidePanelVisble: boolean = false;
 
@@ -68,19 +68,42 @@ export class ProductsComponent implements OnInit {
 
     });
   }
-  getAllproduct() {
-    this.httpservice.getAllproduct().subscribe((res: any) => {
 
+  productList: any[] = [];       // Data from API
+  pageNumber = 1;
+  pageSize = 8;
+  totalCount = 0;
+
+  getAllproduct() {
+    debugger;
+    this.httpservice.getAllproduc(this.pageNumber, this.pageSize).subscribe((res: any) => {
+      this.totalCount = res.totalCount
       this.productList = res.data
+      console.log(res);
 
     })
 
-
-
-
-
   }
+  // ------pagination-----
 
+    get totalPages(){
+      return Math.ceil(this.totalCount / this.pageSize);
+    }
+    prevPage(){
+      if (this.pageNumber > 1) {
+
+        this.pageNumber--;
+        this.getAllproduct();
+      }
+    }
+    nextPage(){
+      if (this.pageNumber < this.totalPages) {
+        this.pageNumber++;
+        this.getAllproduct();
+      }
+    }
+
+  // ------pagination-----
 
   onSave() {
     debugger;
@@ -93,13 +116,13 @@ export class ProductsComponent implements OnInit {
   }
 
   onEdit(item: any) {
-   debugger;
+    debugger;
     this.productObj = item;
     this.opensidepanel();
   }
   onUpdate() {
     debugger;
-    this.httpservice.updateProduct(this.productObj.productId,this.productObj ).subscribe((res: any) => {
+    this.httpservice.updateProduct(this.productObj.productId, this.productObj).subscribe((res: any) => {
 
     })
   }
@@ -114,26 +137,26 @@ export class ProductsComponent implements OnInit {
       });
     }
   }
- 
-  getrereshtoken(){
+
+  getrereshtoken() {
     debugger;
-    this.http.RefreshToken().subscribe((res:any)=>{
+    this.http.RefreshToken().subscribe((res: any) => {
 
       console.log(res);
       console.log("ismail hossen");
-    } )
+    })
   }
 
 
 
-   
 
-  }
-  
 
-   
-     
-  
+}
+
+
+
+
+
 
 
 

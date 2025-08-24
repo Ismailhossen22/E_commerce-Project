@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class WebProductsComponent implements OnInit {
 
-  productlist:any []=[];
+  
 
   constructor(private httpservice:ProductService){}
 
@@ -22,18 +22,44 @@ export class WebProductsComponent implements OnInit {
 
   }
   Message:string='';
+  productlist:any []=[];      // Data from API
+    pageNumber = 1;
+    pageSize = 6;
+    totalCount =0;
 
   getAllproduct(){
-    this.httpservice.getAllproduct().subscribe({
+    debugger;
+    this.httpservice.getAllproduc(this.pageNumber,this.pageSize).subscribe({
       next:(res:any)=> {
-        this.productlist=res.data
+        this.productlist=res.data;
+        this.totalCount=res.totalCount;
         console.log(res.message);
         
       }
     })
-   
-
+  
     
   }
+
+   get totalPages(){
+    return Math.ceil(this.totalCount/this.pageSize);
+   }
+ prevPage(){
+  if(this.pageNumber >1){
+
+    this.pageNumber --;
+    this.getAllproduct();
+  }
+ }
+ nextPage(){
+  if(this.pageNumber<this.totalPages){
+      this.pageNumber ++;
+      this.getAllproduct();
+  }
+ }
+
+
+
+
 
 }

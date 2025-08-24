@@ -52,8 +52,6 @@ export class AccountService {
    debugger;
     const token=localStorage.getItem( 'refresh_token' ) ;
     
-    console.log(token);
-    
     return this.http.post(this.apiUrl+"Refresh", {refreshToken:token},this.httpOption).pipe(
       tap((res:any) =>{
          localStorage.setItem("access_token", res.data.accessToken);

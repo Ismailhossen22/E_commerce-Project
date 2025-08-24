@@ -24,8 +24,10 @@ export class CategoryproductsComponent {
 
   }
   
-  
-
+  productlist:any []=[];      // Data from API
+    pageNumber = 1;
+    pageSize = 6;
+    totalCount =40;
    
   loadproduct(){
     this.httpservice.getcategoryById(this.activeCategoryId).subscribe((res:any)=>{
@@ -33,5 +35,25 @@ export class CategoryproductsComponent {
 
     });
   }
+
+
+ get totalPages(){
+    return Math.ceil(this.totalCount/this.pageSize);
+   }
+ prevPage(){
+  if(this.pageNumber >1){
+
+    this.pageNumber --;
+   // this.getAllproduct();
+  }
+ }
+ nextPage(){
+  if(this.pageNumber<this.totalPages){
+      this.pageNumber ++;
+     // this.getAllproduct();
+  }
+ }
+
+
 
 }

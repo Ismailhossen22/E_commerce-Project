@@ -1,11 +1,48 @@
-<div class="container-fluid py-5">
-    <diV class="container py-5">
+<div class="container-fluid mx-4">
+    
         <div class="text-center mx-auto mb-5" style="max-width: 700px;">
           <h1 class="display-4 fw-semibold" style="color: #10cb16;">BestSeller Products</h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium assumenda animi atque doloribus asperiores sequi cumque ea totam provident consectetur, doloremque fugit dolorum pariatur sit quos quibusdam temporibus, perferendis, tempora magni accusamus.
              Quo autem voluptates ipsum nisi. Amet, vel quo?</p>
         </div>
-         <div class="row ">
+        <div class="row g-3">
+        <div class="col-lg-6 col-xl-4" *ngFor="let item of categoryproductlist">
+            <div class="card shadow-lg h-100 border-0 rounded bg-light">
+
+                <!-- Product Image -->
+                <img [src]="item.imageFile" class="card-img-top rounded-circle" style="width: 150px;"
+                    alt="{{item.productName}}">
+
+                <!-- Product Body -->
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">{{ item.productName }}</h5>
+                    <h6 class="text-success">{{ item.productPrice }} BDT</h6>
+
+                    <!-- Rating Stars -->
+                    <div class="d-flex justify-content-center mb-2" style="color: #f5c518;">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+
+                    <!-- Description (Optional) -->
+                    <p class="card-text small text-muted">
+                        {{ item.description }}
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="card-footer bg-white border-0 text-center">
+                    <button class="btn btn-primary btn-sm">
+                        <i class="fa fa-cart-plus me-1"></i> Add to Cart
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+         <!-- <div class="row ">
+
             <div class="col-lg-6 col-xl-4 " *ngFor="let item of categoryproductlist">
                 <div class="rounded bg-info bg-opacity-25 my-2">
                    <div class="row align-items-center">
@@ -30,8 +67,26 @@
 
             </div>
 
-         </div>
-    </diV>
+         </div> -->
+
+           <!-- Pagination -->
+    <div class="card-footer d-flex justify-content-end bg-info">
+        <nav>
+            <ul class="pagination mb-0">
+                <li class="page-item" [class.disabled]="pageNumber  === 1">
+                    <button class="page-link" (click)="prevPage()">Previous</button>
+                </li>
+                <li class="page-item disabled">
+                    <span class="page-link">{{ pageNumber }} / {{ totalPages }}</span>
+                </li>
+                <li class="page-item" [class.disabled]="pageNumber  === totalCount">
+                    <button class="page-link" (click)="nextPage()">Next</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+  
 
 </div>
 

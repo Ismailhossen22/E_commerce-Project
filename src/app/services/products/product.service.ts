@@ -28,10 +28,15 @@ export class ProductService {
 
      return this.http.get(this.apiUrl+'Product/categoryId?categoryId='+id);
     }
-   
+    // return this.http.get(`${this.apiUrl}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
+    //https://localhost:44307/api/Product/GetAllProduct?pageNumber=1&pageSize=5
+    //this.apiUrl+'Product/GetAllProduct'
+    //  getAllproduct(){
+    //     return this.http.get(this.apiUrl+'Product/GetAllProduct')
 
-    getAllproduct(){
-     return this.http.get(this.apiUrl+'Product/GetAllProduct');
+    //  }
+    getAllproduc(pageNumber:number,pageSize:number){
+     return this.http.get(`${this.apiUrl}${"Product/GetAllProduct"}?pageNumber=${pageNumber}&pageSize=${pageSize}`);
     }
 
    Createproduct(obj:any){
@@ -42,7 +47,7 @@ export class ProductService {
     return this.http.put(this.apiUrl+'Product/'+id,obj);
    };
    onDelete(id:any){
-    return this.http.delete(this.apiUrl+'product/'+id);
+    return this.http.delete(this.apiUrl+'Product/'+id);
    }
 
   
